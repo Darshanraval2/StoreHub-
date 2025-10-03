@@ -1,4 +1,4 @@
-# MERN Task - Shops & Products
+# StoreHub Your Online Store
 
 A full-stack MERN application for managing shops and their products with user authentication.
 
