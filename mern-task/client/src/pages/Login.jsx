@@ -28,7 +28,7 @@ const Login = () => {
     const result = await login(formData.email, formData.password);
     
     if (result.success) {
-      navigate('/http://localhost:3000/api/shops');
+      navigate('/Home');
     } else {
       setError(result.message);
     }

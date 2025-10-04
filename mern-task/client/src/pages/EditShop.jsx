@@ -47,8 +47,8 @@ const EditShop = () => {
     setError('');
 
     try {
-      await axios.put(`http://localhost:3000/api/shops/${id}`, formData);
-      navigate('/http://localhost:3000/api/shops');
+      await axios.put(`http://localhost:3000/shops/${id}`, formData);
+      navigate('/http://localhost:3000/shops');
     } catch (error) {
       setError(error.response?.data?.message || 'Failed to update shop');
     } finally {
