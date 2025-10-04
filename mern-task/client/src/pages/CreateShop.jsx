@@ -107,10 +107,13 @@ const CreateShop = () => {
           {loading ? 'Creating...' : 'Create Shop'}
         </button>
       </form>
+      <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-5 ml-4 mr-5" onClick={() => navigate('/shops')}>Back to Shops</button>
+      <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-5 ml-4 mr-5" onClick={() => navigate('/')}>Back to Home</button>
     </div>
   );
 };
 
 export default CreateShop;
+
 
 

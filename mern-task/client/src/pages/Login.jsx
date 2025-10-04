@@ -28,7 +28,7 @@ const Login = () => {
     const result = await login(formData.email, formData.password);
     
     if (result.success) {
-      navigate('/Home');
+      navigate('/');
     } else {
       setError(result.message);
     }
@@ -95,5 +95,6 @@ const Login = () => {
 };
 
 export default Login;
+
 
 

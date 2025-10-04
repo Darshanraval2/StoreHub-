@@ -76,7 +76,7 @@ const EditProduct = () => {
         price: parseFloat(formData.price),
         stock: parseInt(formData.stock) || 0
       });
-      navigate(`/http://localhost:3000/api/shops/${product.shop._id}`);
+      navigate(`/shops/${product.shop._id}`);
     } catch (error) {
       setError(error.response?.data?.message || 'Failed to update product');
     } finally {

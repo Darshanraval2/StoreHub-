@@ -22,3 +22,4 @@ userSchema.statics.hashPassword = async function (password) {
 export default mongoose.model('User', userSchema);
 
 
+

@@ -47,8 +47,8 @@ const EditShop = () => {
     setError('');
 
     try {
-      await axios.put(`http://localhost:3000/shops/${id}`, formData);
-      navigate('/http://localhost:3000/shops');
+      await axios.put(`http://localhost:3000/api/shops/${id}`, formData);
+      navigate('/shops');
     } catch (error) {
       setError(error.response?.data?.message || 'Failed to update shop');
     } finally {
@@ -120,7 +120,7 @@ const EditShop = () => {
           disabled={loading}
           className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 disabled:opacity-50"
         >
-          {loading ? 'Updating...' : 'Update Shop'}
+          {loading ? 'Updating...' : 'Update Shop'  }
         </button>
       </form>
     </div>
