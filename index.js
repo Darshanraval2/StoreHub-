@@ -5,6 +5,7 @@ const authRoutes = require('./routes/auth');
 const shopRoutes = require('./routes/shops');
 const productRoutes = require('./routes/products');
 const errorHandler = require('./middleware/errorHandler');
+const orderRoutes = require('./routes/orders');
 
 require('dotenv').config();
 
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/shops', shopRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
 
 // Error handler
 app.use(errorHandler);

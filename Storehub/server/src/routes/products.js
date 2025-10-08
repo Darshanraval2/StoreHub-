@@ -3,6 +3,7 @@ import { body, validationResult } from 'express-validator';
 import { authRequired } from '../middleware/auth.js';
 import Shop from '../models/Shop.js';
 import Product from '../models/Product.js';
+import Order from '../models/Order.js';
 
 const router = Router();
 
@@ -50,6 +51,30 @@ router.delete('/:id', authRequired, async (req, res) => {
   if (shop.owner.toString() !== req.user.id) return res.status(403).json({ message: 'Forbidden' });
   await product.deleteOne();
   res.json({ message: 'Deleted' });
+});
+
+// Protected: Buy product
+router.post('/:id/buy', authRequired, async (req, res) => {
+  const { quantity = 1, shippingAddress = '', customerPhone = '' } = req.body;
+  const product = await Product.findById(req.params.id);
+  if (!product) return res.status(404).json({ message: 'Product not found' });
+  if (product.stock < quantity) return res.status(400).json({ message: 'Insufficient stock' });
+  
+  const totalPrice = product.price * quantity;
+  const order = await Order.create({
+    product: product._id,
+    buyer: req.user.id,
+    quantity,
+    totalPrice,
+    status: 'pending',
+    shippingAddress,
+    customerPhone
+  });
+  
+  product.stock -= quantity;
+  await product.save();
+  
+  res.json({ message: 'Order placed successfully', order });
 });
 
 export default router;

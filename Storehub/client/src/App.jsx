@@ -10,6 +10,7 @@ import CreateShop from './pages/CreateShop';
 import EditShop from './pages/EditShop';
 import CreateProduct from './pages/CreateProduct';
 import EditProduct from './pages/EditProduct';
+import Orders from './pages/Orders';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path="/edit-shop/:id" element={<EditShop />} />
               <Route path="/create-product/:shopId" element={<CreateProduct />} />
               <Route path="/edit-product/:id" element={<EditProduct />} />
+              <Route path="/orders/:shopId" element={<Orders />} />
             </Routes>
           </div>
         </div>

@@ -6,6 +6,7 @@ import { connectToDatabase } from './config/db.js';
 import authRoutes from './routes/auth.js';
 import shopRoutes from './routes/shops.js';
 import productRoutes from './routes/products.js';
+import orderRoutes from './routes/orders.js';
 
 
 const app = express();
@@ -17,6 +18,7 @@ app.get('/api/health', (_req, res) => res.json({ ok: true }));
 app.use('/api/auth', authRoutes);
 app.use('/api/shops', shopRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
 
 const PORT = process.env.PORT || 3000;
 
